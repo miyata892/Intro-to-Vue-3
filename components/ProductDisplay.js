@@ -40,9 +40,11 @@ app.component('product-display', {
           Add to Cart
         </button>
         <button 
+          :class="{ disabledButton: !inStock }" 
+          :disabled="!inStock" 
           class="button"
-          @click="removeToCart" >
-          Remove to Cart
+          @click="removeFromCart" >
+          Remove Item
         </button>
       </div>
     </div>
@@ -63,8 +65,9 @@ app.component('product-display', {
     addToCart() {
       this.$emit('add-to-cart', this.variants[this.selectedVariant].id);
     },
-    removeToCart() {
-      this.$emit('remove-to-cart', this.variants[this.selectedVariant].id, true);
+    removeFromCart() {
+      // コンポーネントから親に呼び出し側に渡してあげる
+      this.$emit('remove-from-cart', this.variants[this.selectedVariant].id);
     },
       updateVariant(index) {
           this.selectedVariant = index

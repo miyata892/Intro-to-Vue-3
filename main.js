@@ -1,16 +1,20 @@
 const app = Vue.createApp({
     data() {
         return {
-            cart: [0],
+            cart: [],
             premium: true
         }
     },
   methods: {
-    updateCart(id, isRemove) {
-      if (isRemove) {
-        this.cart.shift();
-      }
+    updateCart(id) {
       this.cart.push(id)
+    },
+    // idが受け取れる
+    removeById(id) {
+      const index = this.cart.indexOf(id);
+      if (index > -1) {
+        this.cart.splice(index, 1);
       }
     }
+  },
 })
