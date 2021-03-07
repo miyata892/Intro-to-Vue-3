@@ -39,6 +39,11 @@ app.component('product-display', {
           v-on:click="addToCart">
           Add to Cart
         </button>
+        <button 
+          class="button"
+          @click="removeToCart" >
+          Remove to Cart
+        </button>
       </div>
     </div>
   </div>`,
@@ -55,9 +60,12 @@ app.component('product-display', {
     }
   },
   methods: {
-      addToCart() {
-          this.cart += 1
-      },
+    addToCart() {
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].id);
+    },
+    removeToCart() {
+      this.$emit('remove-to-cart', this.variants[this.selectedVariant].id, true);
+    },
       updateVariant(index) {
           this.selectedVariant = index
       }
