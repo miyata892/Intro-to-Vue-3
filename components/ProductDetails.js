@@ -1,5 +1,5 @@
 app.component('product-details', {
-  prop: {
+  props: {
     details: {
       type: Array,
       required: true
