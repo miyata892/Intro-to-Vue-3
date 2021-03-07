@@ -11,11 +11,18 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-      
+
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <!-- image goes here -->
+            <img v-bind:src="image" alt="" srcset="">
+            <!-- 下記の書き方でもOK ショートハンド -->
+						<!-- <img :src="image" alt="" srcset="">
+						<img :alt="description">
+						<a :href="url">
+						<div :class="isActive">
+						<span :style="isActive">
+						<span :disabled="isDisabled"> -->
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
