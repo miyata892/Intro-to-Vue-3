@@ -24,6 +24,7 @@
 						<p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
 						<!-- <p v-show="inStock">In Stock</p> -->
 						<p v-else>Out of Stock</p>
+						<p v-if="onSale">On Sale</p>
           </div>
         </div>
       </div>
